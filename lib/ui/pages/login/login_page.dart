@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             child: const Text(
                               "INGRESAR",
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold, color: kWhiteColor),
                             ),
                           ),
                         ),

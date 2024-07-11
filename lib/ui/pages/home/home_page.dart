@@ -39,15 +39,6 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    // return WillPopScope(
-    //   onWillPop: () async {
-    //     if (_tabController.index != 0) {
-    //       _tabController.index = 0;
-    //       homeController.changeItemSeleccionado(0);
-    //       return false;
-    //     }
-    //     return true;
-    //   },
     return PopScope(
       canPop: true,
       onPopInvoked: (bool canPop) async {
@@ -64,7 +55,6 @@ class _HomePageState extends State<HomePage>
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
               children: const [
-                //ReportePage(),
                 AuditoriaPage(),
                 ProfilePage(),
               ],
@@ -88,14 +78,6 @@ class _HomePageState extends State<HomePage>
             activeColor: kAccentColor,
             inactiveColor: darkTheme ? kWhiteColor : kWhiteColor,
             items: [
-              /* ItemsButton(
-                icon: 'assets/icon/ic_donut.svg',
-                title: "Principal",
-                onPressed: () {
-                  pageController.animateTo(0,
-                      duration: kDefaultTime, curve: Curves.ease);
-                },
-              ), */
               ItemsButton(
                 icon: 'assets/icon/ic_auditorias.svg',
                 title: "Auditorias",
