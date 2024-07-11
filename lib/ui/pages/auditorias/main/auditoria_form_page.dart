@@ -38,8 +38,11 @@ class _AuditoriaFormPageState extends State<AuditoriaFormPage> {
     final isOnline = arguments['isOnline'] as bool;
     final token = arguments['token'] as String;
 
-    return WillPopScope(
-      onWillPop: () => onWillPop(isOnline, auditoriaId),
+    // return WillPopScope(
+    //   onWillPop: () => onWillPop(isOnline, auditoriaId),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (bool didPop) => onWillPop(isOnline, auditoriaId),
       child: Scaffold(
         body: SafeArea(
           child: Obx(
@@ -69,6 +72,20 @@ class _AuditoriaFormPageState extends State<AuditoriaFormPage> {
                   child: _MenuLocation(
                     pageController: _pageController,
                     controller: auditoriaController,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: AppBar(
+                    leading: IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () => Get.offAllNamed(AppRoutes.home),
+                    ),
+                    backgroundColor: Colors.blue
+                        .withOpacity(0.0), //You can make this transparent
+                    elevation: 0.0,
                   ),
                 ),
                 Positioned.fill(

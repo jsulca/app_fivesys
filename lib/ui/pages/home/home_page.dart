@@ -39,14 +39,22 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    // return WillPopScope(
+    //   onWillPop: () async {
+    //     if (_tabController.index != 0) {
+    //       _tabController.index = 0;
+    //       homeController.changeItemSeleccionado(0);
+    //       return false;
+    //     }
+    //     return true;
+    //   },
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool canPop) async {
         if (_tabController.index != 0) {
           _tabController.index = 0;
           homeController.changeItemSeleccionado(0);
-          return false;
         }
-        return true;
       },
       child: Scaffold(
         body: Stack(

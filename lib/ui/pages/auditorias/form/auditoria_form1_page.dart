@@ -110,7 +110,8 @@ class _AuditoriaForm1PageState extends State<AuditoriaForm1Page> {
                   decoration: getTextFieldInputDecoration('Nombre'),
                   enableInteractiveSelection: false,
                   style: TextStyle(color: darkTheme ? kWhiteColor : null),
-                  readOnly: !(widget.isOnline && (widget.estado == 0 || widget.estado == 1)),
+                  readOnly: !(widget.isOnline &&
+                      (widget.estado == 0 || widget.estado == 1)),
                   onChanged: (value) => auditoriaController.updateNombre(),
                 ),
 
@@ -122,7 +123,8 @@ class _AuditoriaForm1PageState extends State<AuditoriaForm1Page> {
                   ),
                   darkTheme: darkTheme,
                   // enabled: ,
-                  enabled: !(widget.isOnline && (widget.estado == 0 || widget.estado == 1)),
+                  enabled: !(widget.isOnline &&
+                      (widget.estado == 0 || widget.estado == 1)),
                   isTitle: true,
                   lista: tipoEstados,
                   onChanged: (value) => auditoriaController.updateEstado(value),
